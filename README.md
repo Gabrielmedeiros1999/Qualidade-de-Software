@@ -2,6 +2,7 @@
 
 ## 👥 Integrantes
 - Gabriel Caldeira Medeiros — 782410077
+- Vinicius Dobke Gaspar da Silva - 782410024
 ## 🎯 Objetivo do Repositório
 Este repositório reúne as atividades desenvolvidas na disciplina de Qualidade de Software, realizadas por meio da metodologia PBL.
 

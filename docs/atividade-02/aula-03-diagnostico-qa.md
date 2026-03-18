@@ -52,6 +52,7 @@ Esses problemas afetam diretamente a experiência do usuário, causando frustra�
 Explique se a qualidade deve ser responsabilidade de uma pessoa ou de toda a equipe.
 
 > Resposta:
+Deve ser responsabilidade de toda a equipe, todos devem contribuir para garantir que o sistema funcione corretamente e atenda aos requisitos.
 
 ---
 
@@ -121,28 +122,28 @@ A startup decidiu contratar novos profissionais. Crie anúncios de vagas.
 
 ---
 
-## 4.1 Vaga 1 – [Título da vaga]
+## 4.1 Vaga 1 – [Desenvolvedor de Software]
 
 ### Descrição da vaga
-> 
+> A Local Eats busca um desenvolvedor para atuar no desenvolvimento e manutenção da plataforma.
 
 ### Responsabilidades
-- 
-- 
-- 
+- Desenvolver novas funcionalidades
+- Corrigir bugs
+- Trabalhar em equipe
 
 ### Requisitos obrigatórios
-- 
-- 
-- 
+- Logíca de Programação
+- Conhecimento em Programação
+- Noções de Git
 
 ### Requisitos desejáveis
-- 
-- 
-- 
+- Experiência com desenvolvimento web
+- Noções de banco de dados
+- Vivência prática em projetos
 
 ### Certificações desejáveis
-- 
+- Cursos na área de desenvolvimento
 
 ---
 

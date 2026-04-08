@@ -125,7 +125,7 @@ A startup decidiu contratar novos profissionais. Crie anúncios de vagas.
 ## 4.1 Vaga 1 – [Desenvolvedor de Software]
 
 ### Descrição da vaga
-> A Local Eats busca um desenvolvedor para atuar no desenvolvimento e manutenção da plataforma.
+> A LocalEats busca um desenvolvedor para atuar no desenvolvimento e manutenção da plataforma.
 
 ### Responsabilidades
 - Desenvolver novas funcionalidades
@@ -147,28 +147,28 @@ A startup decidiu contratar novos profissionais. Crie anúncios de vagas.
 
 ---
 
-## 4.2 Vaga 2 – [Título da vaga]
+## 4.2 Vaga 2 – [Analista de Qualidade]
 
 ### Descrição da vaga
-> 
+> A LocalEats busca um analista de qualidade para atuar como testador e para garantir a qualidade da plataforma
 
 ### Responsabilidades
-- 
-- 
-- 
+- Realizar testes das funcionalidades da plataforma
+- Garantir a qualidade da plataforma
+- Trabalhar em equipe
 
 ### Requisitos obrigatórios
-- 
-- 
-- 
+- Conhecimento dos processos de testes
+- Conheciemento de ferramentas para testes
+- Escrita clara de relatórios de erro
 
 ### Requisitos desejáveis
-- 
-- 
-- 
+- Experiência com desenvolvimento web
+- Experiência em metodologias ágeis
+- Boa comunicação
 
 ### Certificações desejáveis
-- 
+- Cursos na área analista de qualidade
 
 ---
 
@@ -181,7 +181,7 @@ Descreva brevemente:
 - Principais melhorias propostas para a startup
 
 > Resposta:
-
+A equipe aprender que a qualidade é algo que deve ser almejado por todos da equipe igualmente, ao invés de algo delegado para um ou poucos. Não foram encontradas dificuldades. As principais propostas de melhoria para a startup são contratar, no mínimo, dois analistas de qualidade e revisar a aplicação com foco em corrigir falhas e bugs.
 ---
 
 # 📌 Observações (opcional)

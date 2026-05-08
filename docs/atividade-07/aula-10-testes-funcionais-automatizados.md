@@ -95,7 +95,7 @@ pytest
 
 ### 📸 Evidência
 
-![Execução dos testes](evidencias/teste-playwright.png)
+![Execução dos testes](https://raw.githubusercontent.com/Gabrielmedeiros1999/Qualidade-de-Software/main/evidencias/teste-playwright.png)
 
 
 ---

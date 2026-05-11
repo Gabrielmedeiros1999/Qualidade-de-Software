@@ -25,6 +25,15 @@ Fluxo essencial para acesso às funcionalidades do LocalEats.
 - Login inválido → mensagem de erro
 - Campos vazios → validação
 
+### 📌 Nome —  Fluxo Escolhido:
+
+
+🔎 **Descrição**  
+
+
+🎯 **Importância**  
+
+
 ---
 
 ## 🔹 2. Teste com Codegen
@@ -38,6 +47,9 @@ playwright codegen https://local-eats-unisenac.vercel.app/
 ### 🔗 Gabriel Medeiros - Link para o código gerado
 
 👉 https://github.com/Gabrielmedeiros1999/Qualidade-de-Software/blob/main/tests/codegen_login.py
+
+### 🔗 Nome - Link para o código gerado
+
 
 ### 🧠 Observações
 
@@ -59,6 +71,11 @@ playwright codegen https://local-eats-unisenac.vercel.app/
 - Realiza login  
 - Valida execução do fluxo de login
 
+### 🔗 Nome - Link para o teste
+
+
+### 📌 O que o teste faz?
+
 ---
 
 ## 🔹 4. Refatoração com Page Object Model (POM)
@@ -75,7 +92,16 @@ playwright codegen https://local-eats-unisenac.vercel.app/
 
 - Separação entre teste e lógica de UI  
 - Código mais organizado  
-- Maior reutilização  
+- Maior reutilização
+
+### 🔗 Nome - Link para Page Object
+
+
+### 🔗 Nome - Link para teste refatorado
+
+
+### 🧠 Melhorias realizadas
+
 
 ---
 

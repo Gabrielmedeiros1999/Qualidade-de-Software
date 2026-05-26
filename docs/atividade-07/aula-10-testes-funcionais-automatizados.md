@@ -25,14 +25,19 @@ Fluxo essencial para acesso às funcionalidades do LocalEats.
 - Login inválido → mensagem de erro
 - Campos vazios → validação
 
-### 📌 Nome —  Fluxo Escolhido:
-
+### 📌 Vinicius Dobke —  Fluxo Escolhido:
+Navegação e visualização de restaurantes
 
 🔎 **Descrição**  
-
+Permite ao usuário visualizar a lista de restaurantes disponíveis no sistema.
 
 🎯 **Importância**  
+É uma funcionalidade essencial para que o usuário possa conhecer os restaurantes antes de realizar um pedido.
 
+📏 **Cenários esperados**
+- Lista carregada corretamente
+- Restaurantes visíveis na tela
+- Navegação funcionando sem erros
 
 ---
 
@@ -48,8 +53,9 @@ playwright codegen https://local-eats-unisenac.vercel.app/
 
 👉 https://github.com/Gabrielmedeiros1999/Qualidade-de-Software/blob/main/tests/codegen_login.py
 
-### 🔗 Nome - Link para o código gerado
+### 🔗 Vinicius Dobke - Link para o código gerado
 
+👉 https://github.com/Gabrielmedeiros1999/Qualidade-de-Software/blob/main/tests/codegen_restaurantes.py
 
 ### 🧠 Observações
 
@@ -71,11 +77,15 @@ playwright codegen https://local-eats-unisenac.vercel.app/
 - Realiza login  
 - Valida execução do fluxo de login
 
-### 🔗 Nome - Link para o teste
+### 🔗 Vinicius Dobke - Link para o teste
 
+👉 https://github.com/Gabrielmedeiros1999/Qualidade-de-Software/blob/main/tests/test_restaurantes.py
 
 ### 📌 O que o teste faz?
-
+- Acessa o sistema
+- Verifica se a lista de restaurantes é carregada
+- Seleciona um restaurante
+- Valida a abertura da página de detalhes
 ---
 
 ## 🔹 4. Refatoração com Page Object Model (POM)
@@ -94,14 +104,20 @@ playwright codegen https://local-eats-unisenac.vercel.app/
 - Código mais organizado  
 - Maior reutilização
 
-### 🔗 Nome - Link para Page Object
+### 🔗 Vinicius Dobke - Link para Page Object
 
+👉 https://github.com/Gabrielmedeiros1999/Qualidade-de-Software/blob/main/pages/restaurantes_page.py
 
-### 🔗 Nome - Link para teste refatorado
+### 🔗 Vinicius Dobke - Link para teste refatorado
 
+👉 https://github.com/Gabrielmedeiros1999/Qualidade-de-Software/blob/main/tests/test_restaurantes.py
 
 ### 🧠 Melhorias realizadas
 
+- Separação da lógica de navegação da lógica de teste
+- Reutilização de métodos para acesso aos restaurantes
+- Melhor legibilidade e manutenção do código
+- Redução da dependência de seletores frágeis
 
 ---
 
@@ -111,18 +127,23 @@ playwright codegen https://local-eats-unisenac.vercel.app/
 
 ```bash
 pytest
+
+python -m pytest tests/test_login.py -v
+
+python -m pytest tests/test_restaurantes.py -v
 ```
 
 ### 📊 Resultado
 
-- Total de testes: 1  
-- Testes passaram: 1  
+- Total de testes: 2
+- Testes passaram: 2  
 - Testes falharam: 0  
 
 ### 📸 Evidência
 
 ![Execução dos testes](https://raw.githubusercontent.com/Gabrielmedeiros1999/Qualidade-de-Software/main/evidencias/teste-playwright.png)
 
+![Execução do teste restaurante](https://raw.githubusercontent.com/Gabrielmedeiros1999/Qualidade-de-Software/main/evidencias/teste-playwright-restaurantes.png)
 
 ---
 

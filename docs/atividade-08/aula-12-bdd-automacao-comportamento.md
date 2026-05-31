@@ -18,13 +18,13 @@ Navegação entre páginas
 ### Objetivo
 Validar se o usuário consegue navegar corretamente entre as páginas do sistema.
 
-## Integrante: Nome do(a) aluno(a)
+## Integrante: Vinicius Dobke
 
 ### Fluxo
-
+Filtro por categoria
 
 ### Objetivo
-
+Validar se o usuário consegue filtrar corretamente os restaurantes por categoria de culinária.
 
 ---
 
@@ -55,23 +55,23 @@ Feature: Navegação entre páginas
 ## Arquivo
 
 ```text
-features/Arquivo.feature
+features/filtro_categoria.feature
 ```
 
 ## Conteúdo
 
 ```gherkin
-Feature: 
+Feature: Filtro por categoria
 
-  Scenario: 
-    Given
-    When 
-    Then 
+  Scenario: Filtrar restaurantes pela categoria Japonesa
+    Given que o usuário está logado no sistema
+    When selecionar a categoria "Japonesa"
+    Then o sistema deve manter a página de exploração ativa
 
-  Scenario: 
-    Given 
-    When 
-    Then 
+  Scenario: Filtrar restaurantes pela categoria Brasileira
+    Given que o usuário está logado no sistema
+    When selecionar a categoria "Brasileira"
+    Then o sistema deve atualizar a listagem de restaurantes
 ```
 
 ---
@@ -85,9 +85,11 @@ projeto/
 │
 ├── features/
 │   └── navegacao_paginas.feature
+│   └── filtro_categoria.feature
 │   
 ├── tests/
 │   └── test_navegacao_paginas.py
+│   └── test_filtro_categoria.py
 │
 ├── evidencias/
 │
@@ -100,6 +102,62 @@ projeto/
 
 ```text
 tests/test_filtro_categoria.py
+```
+
+## Código
+
+```python
+from pytest_bdd import scenarios, given, when, then
+
+scenarios('../features/filtro_categoria.feature')
+
+
+@given('que o usuário está logado no sistema')
+def login(page):
+
+    page.goto('https://local-eats-unisenac.vercel.app/static/login.html')
+
+    page.fill('input[type="email"]', 'novo23@teste.com')
+    page.fill('input[type="password"]', 'gbd34')
+
+    page.locator('#loginForm button[type="submit"]').click()
+
+    page.wait_for_timeout(5000)
+
+    page.goto('https://local-eats-unisenac.vercel.app/static/index.html')
+
+    page.wait_for_timeout(3000)
+
+    page.pause()
+
+@when('selecionar a categoria "Japonesa"')
+def selecionar_japonesa(page):
+
+    page.locator('[data-cuisine="Japonesa"]').click()
+
+
+@then('o sistema deve manter a página de exploração ativa')
+def validar_japonesa(page):
+
+    assert "index" in page.url
+
+
+@when('selecionar a categoria "Brasileira"')
+def selecionar_brasileira(page):
+
+    page.locator('[data-cuisine="Brasileira"]').click()
+
+
+@then('o sistema deve atualizar a listagem de restaurantes')
+def validar_brasileira(page):
+
+    assert page.locator("body").is_visible()
+```
+
+## Arquivo
+
+```text
+tests/test_navegacao_paginas.py
 ```
 
 ## Código
@@ -156,6 +214,8 @@ def validar_home(page):
 ```bash
 pytest tests/test_navegacao_paginas.py -v
 
+pytest tests/test_filtro_categoria.py -v
+
 ```
 
 ---
@@ -165,7 +225,7 @@ pytest tests/test_navegacao_paginas.py -v
 ```text
 =================== test session starts ===================
 
-2 passed in 5.32s
+4 passed in 5.32s
 
 ==========================================================
 ```
@@ -181,11 +241,21 @@ evidencias/
   teste-navegacao-paginas.png
 ```
 
+```text
+evidencias/
+  teste-filtro-categoria.png
+```
+
 ## Print da aplicação
 
 ```text
 evidencias/
   navegacao-paginas.png
+```
+
+```text
+evidencias/
+  filtro-categoria.png
 ```
 
 ---

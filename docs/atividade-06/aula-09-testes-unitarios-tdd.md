@@ -41,7 +41,7 @@ Soma os valores dos itens do pedido e valida se o total atinge o valor mínimo.
 
 ---
 
-### 👤 Integrante 2 – Aplicação de desconto percentual
+### 👤 Vinicius Dobke – Aplicação de desconto percentual
 
 **Arquivo da implementação:** `/src/desconto.py`  
 **Arquivo de testes:** `/tests/test_desconto.py`
@@ -55,7 +55,7 @@ Aplica um desconto percentual sobre o valor total do pedido.
 
 ---
 
-### 👤 Integrante 3 – Cálculo de taxa de entrega
+### 👤 Vinicius Dobke – Cálculo de taxa de entrega
 
 **Arquivo da implementação:** `/src/entrega.py`  
 **Arquivo de testes:** `/tests/test_entrega.py`
@@ -133,7 +133,7 @@ def test_total_invalido():
 
 ---
 
-### 🧪 Integrante 2 – Testes (desconto)
+### 🧪 Vinicius Dobke – Testes (desconto)
 
 #### Teste 1 – Aplicação de desconto válido
 
@@ -171,7 +171,7 @@ def test_total_invalido():
 
 ---
 
-### 🧪 Integrante 3 – Testes (entrega)
+### 🧪 Vinicius Dobke – Testes (entrega)
 
 #### Teste 1 – Distância até 3km
 

@@ -41,7 +41,7 @@ Soma os valores dos itens do pedido e valida se o total atinge o valor mínimo.
 
 ---
 
-### 👤 Vinicius Dobke – Aplicação de desconto percentual
+### 👤 Vinicius Dobke – Aplicação de desconto percentual com base no valor do pedido
 
 **Arquivo da implementação:** `/src/desconto.py`  
 **Arquivo de testes:** `/tests/test_desconto.py`
@@ -50,15 +50,13 @@ Soma os valores dos itens do pedido e valida se o total atinge o valor mínimo.
 Aplica um desconto percentual sobre o valor total do pedido.
 
 #### Regras de negócio
-- Percentual deve estar entre 0 e 100  
-- Valor final não pode ser negativo  
-
+- Valor do pedido não pode ser 0 ou negativo
 ---
 
 ### 👤 Vinicius Dobke – Cálculo de taxa de entrega
 
-**Arquivo da implementação:** `/src/entrega.py`  
-**Arquivo de testes:** `/tests/test_entrega.py`
+**Arquivo da implementação:** `/src/frete.py`  
+**Arquivo de testes:** `/tests/test_frete.py`
 
 #### Descrição
 Calcula a taxa de entrega com base na distância.
@@ -67,7 +65,6 @@ Calcula a taxa de entrega com base na distância.
 - Até 3km → taxa fixa  
 - Acima de 3km → taxa adicional por km  
 - Distância negativa → erro  
-
 ---
 
 ## 🔹 2. Testes Unitários
@@ -135,102 +132,238 @@ def test_total_invalido():
 
 ### 🧪 Vinicius Dobke – Testes (desconto)
 
-#### Teste 1 – Aplicação de desconto válido
+#### Teste 1 – Pedido sem desconto
 
-- Cenário: Desconto dentro do limite  
-- Resultado esperado: Valor reduzido corretamente  
+- Cenário: Valor do pedido não é suficiente para receber desconto
+- Resultado esperado: Valor do pedido permanece o mesmo
+
+##### Código do Teste
+
+def test_sem_desconto():
+    valorFinal = calcular_desconto(59)
+    assert valorFinal == 59
 
 ##### TDD
 - Red: falha inicial  
 - Green: cálculo simples  
-- Refactor: validação de percentual  
+- Refactor: melhor organização de código 
 
 ##### Refatoração
-- Garantia de limites do desconto  
+- Garantia de limites do desconto
+- Melhoria da legibilidade do código
 
 ##### Execução
 - Resultado: Passou  
-
 ---
 
-#### Teste 2 – Percentual inválido
+#### Teste 2 – Desconto de 10% no valor do pedido
 
-- Cenário: Desconto maior que 100%  
-- Resultado esperado: Erro  
+- Cenário: Valor do pedido é suficiente para um desconto de 10%
+- Resultado esperado: Valor do pedido ser reduzido em 10%
+
+##### Código do Teste
+
+def test_desconto10():
+    valorFinal = calcular_desconto(60)
+    assert valorFinal == 54
 
 ##### TDD
 - Red: falha  
-- Green: validação adicionada  
-- Refactor: melhoria da mensagem de erro  
+- Green: desconto aplicado corretamente
+- Refactor: aplicação de princípios de código limpo
 
 ##### Refatoração
-- Tratamento de entrada inválida  
+- Melhoria na legibilidade do código
 
 ##### Execução
 - Resultado: Passou  
-
 ---
 
-### 🧪 Vinicius Dobke – Testes (entrega)
+#### Teste 3 – Desconto de 15% no valor do pedido
 
-#### Teste 1 – Distância até 3km
+- Cenário: Valor do pedido é suficiente para um desconto de 15%
+- Resultado esperado: Valor do pedido ser reduzido em 15%
 
-- Cenário: Taxa fixa  
-- Resultado esperado: Valor fixo  
+##### Código do Teste
 
-##### TDD
-- Red: falha inicial  
-- Green: retorno fixo  
-- Refactor: lógica condicional  
-
-##### Refatoração
-- Inclusão de regra de distância  
-
-##### Execução
-- Resultado: Passou  
-
----
-
-#### Teste 2 – Distância negativa
-
-- Cenário: Entrada inválida  
-- Resultado esperado: Erro  
+def test_desconto15():
+    valorFinal = calcular_desconto(100)
+    assert valorFinal == 85
 
 ##### TDD
 - Red: falha  
-- Green: validação implementada  
-- Refactor: melhoria da estrutura  
+- Green: desconto aplicado corretamente
+- Refactor: aplicação de princípios de código limpo
 
 ##### Refatoração
-- Garantia de integridade dos dados  
+- Melhoria na legibilidade do código  
 
 ##### Execução
 - Resultado: Passou  
+---
 
+#### Teste 4 – Verificação do limiar entre os descontos de 10% e 15%
+
+- Cenário: Valor do pedido está na divisa entre os valores para desconto de 10% e 15%
+- Resultado esperado: Valor do pedido sera reduzido em 10%
+
+##### Código do Teste
+
+def test_desconto_limiar_entre_10_e_15():
+    valorFinal = calcular_desconto(99)
+    assert valorFinal == 89.1
+
+##### TDD
+- Red: falha  
+- Green: desconto aplicado corretamente
+- Refactor: aplicação de princípios de código limpo
+
+##### Refatoração
+- Melhoria na legibilidade do código  
+
+##### Execução
+- Resultado: Passou  
+---
+
+#### Teste 5 – Valor do pedido é 0
+
+- Cenário: Valor do pedido é zero
+- Resultado esperado: A função retorna erro
+
+##### Código do Teste
+
+def test_receber_valor_zero():
+    with pytest.raises(ValueError):
+        calcular_desconto(0)
+
+##### TDD
+- Red: falha  
+- Green: a funcionalidade retorna erro
+- Refactor: aplicação de princípios de código limpo
+
+##### Refatoração
+- Melhoria na legibilidade do código  
+
+##### Execução
+- Resultado: Passou  
+---
+
+#### Teste 6 – Valor do pedido é negativo
+
+- Cenário: Valor do pedido é negativo
+- Resultado esperado: A função retorna erro
+
+##### Código do Teste
+
+def test_receber_valor_negativo():
+    with pytest.raises(ValueError):
+        calcular_desconto(-1)
+
+##### TDD
+- Red: falha  
+- Green: a funcionalidade retorna erro
+- Refactor: aplicação de princípios de código limpo
+
+##### Refatoração
+- Melhoria na legibilidade do código  
+
+##### Execução
+- Resultado: Passou  
+---
+
+### 🧪 Vinicius Dobke – Testes (frete)
+
+#### Teste 1 – Taxa fixa
+
+- Cenário: Distãncia é menor do que 3km
+- Resultado esperado: A taxa de entrega é fixa
+
+##### Código do Teste
+
+def test_menor_frete():
+    valorFrete = calcular_frete(3)
+    assert valorFrete == 8
+
+##### TDD
+- Red: falha  
+- Green: o valor da taxa é fixa
+- Refactor: aplicação de princípios de código limpo
+
+##### Refatoração
+- Melhoria na legibilidade do código  
+
+##### Execução
+- Resultado: Passou  
+---
+
+#### Teste 2 – Taxa proporcional
+
+- Cenário: Distãncia é maior do que 3km
+- Resultado esperado: A taxa de entrega aumenta conforme a distância
+
+##### Código do Teste
+
+def test_frete_proporcional():
+    valorFrete = calcular_frete(3.1)
+    assert valorFrete == 9.5
+
+##### TDD
+- Red: falha  
+- Green: o valor da taxa é proporcional
+- Refactor: aplicação de princípios de código limpo
+
+##### Refatoração
+- Melhoria na legibilidade do código  
+
+##### Execução
+- Resultado: Passou  
+---
+
+#### Teste 3 – Distância inválida
+
+- Cenário: Distãncia é negativa
+- Resultado esperado: A função retorna erro
+
+##### Código do Teste
+
+def test_distancia_invalida():
+    with pytest.raises(ValueError):
+        calcular_frete(-0.1)
+
+##### TDD
+- Red: falha  
+- Green: a funcionalidade retorna erro
+- Refactor: aplicação de princípios de código limpo
+
+##### Refatoração
+- Melhoria na legibilidade do código  
+
+##### Execução
+- Resultado: Passou  
 ---
 
 ## 🔹 3. Reflexão
 
 ### Foi difícil escrever testes antes do código?
-Sim, exige pensar primeiro na regra.
+Sim, pensar nas regras de negócio e em outros detalhes antes de escrever o código é muito mais complexo do que apenas escrever o código e testar e/ou validar depois
 
 ---
 
 ### O TDD ajudou no desenvolvimento?
-Sim, organizou melhor o desenvolvimento.
+Mais ou menos, TDD, apesar de auxiliar na organização do desenvolvimento, tem uma curva de aprendizado e adaptação um pouco íngrime, o que faz com que leve um tempo considerável para se adaptar ao método, desaclerando os processos. Além de haver estapas que podem ser consideradas suboptimas quando o assunto é desenvolvimento. A "necessidade" de falhar nos testes mesmo sabendo o que está errado é limitante
 
 ---
 
 ### Os testes aumentaram a confiança no código?
-Sim, evita regressões.
+Sim, os testes permitiram que o código pudesse ser refatorado e auterado sem medo de que tudo parasse de funcionar
 
 ---
 
 ### O que melhorariam?
-- Mais cenários extremos 
+- Mais cenários extremos
 - Cobertura maior  
-
+- Pular algumas etapas do TDD para aumentar a velocidade
 ---
 
 ### Como isso ajuda no projeto?
-Garante qualidade contínua e evolução segura.
+Assegura que a equipe consiga sempre aumentar a qualidade do projeto sem risco de cometer falhas críticas que afetem seu funcionamento

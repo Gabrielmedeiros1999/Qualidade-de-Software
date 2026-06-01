@@ -8,7 +8,7 @@ Este repositório reúne as atividades desenvolvidas na disciplina de Qualidade 
 
 ## 📚 Organização
 - `docs/` → Atividades realizadas ao longo das aulas
-- `artefatos/` → Diagramas, relatórios e evidências
+- `evidencias/` → Diagramas, relatórios e evidências
 - `src/` → Código-fonte (quando aplicável)
 - `referencias/` → Materiais de apoio e bibliografia
 

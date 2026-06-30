@@ -115,11 +115,11 @@ jobs:
 
 | Indicador | Valor |
 |------------|---------|
-| Quantidade de testes executados | 3 |
-| Quantidade de testes aprovados | 0 |
-| Quantidade de testes com falha | 3 |
-| Status final do pipeline | Falha |
+| Quantidade de testes executados | 5 |
+| Quantidade de testes aprovados | 5 |
+| Quantidade de testes com falha | 0 |
+| Status final do pipeline | passed |
 
 ## Análise dos Resultados
 
-O pipeline de Integração Contínua foi configurado utilizando GitHub Actions para executar automaticamente os testes a cada push ou pull request. Durante a execução do pipeline, os testes apresentaram falhas, indicando problemas na implementação da funcionalidade. Essas falhas permitiram identificar defeitos de forma automática antes da integração do código ao projeto principal. A utilização dos testes automatizados e do pipeline demonstrou a importância da validação contínua da qualidade do software, facilitando a detecção e correção de erros durante o desenvolvimento.
+O pipeline de Integração Contínua foi configurado utilizando GitHub Actions para executar automaticamente os testes a cada *push* ou *pull request*. Durante a execução do pipeline, foram executados cinco testes automatizados, todos aprovados com sucesso, sem ocorrência de falhas. Esse resultado demonstra que a funcionalidade implementada atende aos cenários de teste definidos e que o código encontra-se estável para integração ao projeto principal. A utilização dos testes automatizados e do pipeline de Integração Contínua contribuiu para a validação contínua da qualidade do software, garantindo maior confiabilidade no processo de desenvolvimento e reduzindo o risco de introdução de erros em novas alterações.
